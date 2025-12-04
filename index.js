@@ -1,12 +1,12 @@
-require('dotenv').config();
+
 const axios = require("axios");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-
+require('dotenv').config();
 const authRoutes = require("./routes/auth");
 const bookingRoutes = require("./routes/bookings");
-const paymentRoutes = require('./routes/payments');
+const paymentRoutes = require("./routes/payments");
 //const flightRoutes = require('./routes/flightSearch');
 const { ensureAccessToken } = require("./amadeus"); // ✅ Fix here
 const seatRoutes = require("./routes/seatRoutes");
@@ -17,7 +17,7 @@ app.use(cors())
 app.use(express.json())
 app.use("/api/auth", authRoutes)
 app.use("/api/bookings", bookingRoutes)
-app.use("/api/payments", paymentRoutes)
+app.use("/api/payments", paymentRoutes);
 //app.use('/api/flights', flightRoutes);
 app.use("/api/seats", seatRoutes);
 app.use("/api/flightbooking", flightbookingRoutes);
